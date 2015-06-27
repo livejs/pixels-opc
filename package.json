@@ -1,0 +1,40 @@
+{
+  "name": "ledarray-opc",
+  "version": "1.0.0",
+  "description": "stream ndpixels over Open Pixel Control",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/livejs/ledarray-opc.git"
+  },
+  "keywords": [
+    "ndpixels",
+    "opc",
+    "open pixel control",
+    "led",
+    "leds",
+    "pixel",
+    "fadecandy",
+    "neopixel",
+    "pixels"
+  ],
+  "author": "ahdinosaur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/livejs/ledarray-opc/issues"
+  },
+  "homepage": "https://github.com/livejs/ledarray-opc#readme",
+  "dependencies": {
+    "defined": "^1.0.0",
+    "lodash.reduce": "^3.1.2",
+    "opc": "^1.1.2",
+    "through2": "^2.0.0",
+    "tinycolor2": "^1.1.2"
+  },
+  "devDependencies": {
+    "tape": "^4.0.0"
+  }
+}
