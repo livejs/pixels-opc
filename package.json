@@ -1,7 +1,7 @@
 {
   "name": "ndpixels-opc",
-  "version": "2.0.0",
-  "description": "stream `ndarray`s of `tinycolor2` pixels over `opc`",
+  "version": "3.0.0-pre0",
+  "description": "stream `ndarray`s of rgb pixels over `opc`",
   "main": "index.js",
   "scripts": {
     "test": "tape test/*"
@@ -37,6 +37,7 @@
     "tinycolor2": "^1.1.2"
   },
   "devDependencies": {
+    "ndarray": "^1.0.18",
     "tape": "^4.0.0"
   }
 }

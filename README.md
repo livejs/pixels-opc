@@ -1,6 +1,6 @@
 # ndpixels-opc
 
-stream [nd](https://npmjs.org/ndarray)-[pixels](https://npmjs.org/tinycolor)s over Open Pixel Control",
+stream [ndpixels](https://npmjs.org/ndarray) over Open Pixel Control,
 
 stability: experimental. expect the unexpected.
 
