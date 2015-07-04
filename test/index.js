@@ -2,9 +2,17 @@ var test = require('tape')
 var through = require('through2')
 var createParser = require('opc/parser')
 var createPixelStream = require('../')
+var Ndarray = require('ndarray')
 
 test('send some pixels', function (t) {
   var input = through.obj()
+
+  var data = new Uint8Array([
+    255, 0, 0,
+    0, 255, 0,
+    0, 0, 255,
+    255, 255, 255
+  ])
 
   input
   .pipe(createPixelStream(0))
@@ -13,17 +21,13 @@ test('send some pixels', function (t) {
     t.equal(message.channel, 0)
     t.equal(message.command, 0)
     t.equal(message.data.length, 4 * 3)
-    t.deepEqual(message.data.toJSON().data, [
-      255, 0, 0,
-      0, 128, 0,
-      0, 0, 255,
-      255, 255, 255
-    ])
+    t.deepEqual(message.data.toJSON().data, [].slice.call(data, 0, data.length))
     t.end()
   })
-  
-  input.write({
-    shape: [2, 2],
-    data: [ 'red', 'green', 'blue', 'white' ]
-  })
+
+
+  input.write(Ndarray(
+    data,
+    [2, 2, 3]
+  ))
 })

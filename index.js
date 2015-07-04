@@ -33,14 +33,13 @@ function PixelStream (opts) {
   this.channel = opts.channel
 }
 
-PixelStream.prototype._write = function write (ndpixels, enc, cb) {
-  var length = reduce(ndpixels.shape, mult)
+PixelStream.prototype._write = function write (pixels, enc, cb) {
+  var length = reduce(pixels.shape, mult) / pixels.shape[pixels.shape.length - 1]
   var strand = createStrand(length)
+  var d = pixels.data
   
-  for (var i = 0; i < length; i++) {
-    var color = ndpixels.data[i]
-    var rgb = Color(color).toRgb()
-    strand.setPixel(i, rgb.r, rgb.g, rgb.b)
+  for (var i = 0, ii = 0; i < length; i++, ii += 3) {
+    strand.setPixel(i, d[ii], d[ii + 1], d[ii + 2])
   }
 
   this.opc.writePixels(this.channel, strand.buffer)
