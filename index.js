@@ -38,6 +38,7 @@ PixelStream.prototype._write = function write (pixels, enc, cb) {
   var d = pixels.data
 
   // TODO support n-dimensions
+  // TODO support with or without daisy chaining grid
   for (var i = 0; i < pixels.shape[0]; i++) {
     for (var j = 0; j < pixels.shape[1]; j++) {
       var bi = pixels.index(i, j, 0)
