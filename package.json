@@ -1,7 +1,7 @@
 {
   "name": "ndpixels-opc",
-  "version": "2.0.0",
-  "description": "stream `ndarray`s of `tinycolor2` pixels over `opc`",
+  "version": "3.0.0-pre0",
+  "description": "stream `ndarray`s of rgb pixels over `opc`",
   "main": "index.js",
   "scripts": {
     "test": "tape test/*"
@@ -33,8 +33,7 @@
     "lodash.reduce": "^3.1.2",
     "opc": "^1.1.2",
     "readable-stream": "^2.0.1",
-    "reduplexer": "^1.1.0",
-    "tinycolor2": "^1.1.2"
+    "reduplexer": "^1.1.0"
   },
   "devDependencies": {
     "ndarray": "^1.0.18",

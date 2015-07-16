@@ -5,8 +5,6 @@ var duplexer = require('reduplexer')
 var defined = require('defined')
 var createOpcStream = require('opc')
 var createStrand = require('opc/strand')
-var Color = require('tinycolor2')
-
 module.exports = createPixelsStream
 
 function createPixelsStream (channel) {
@@ -27,7 +25,8 @@ function createPixelsStream (channel) {
 inherits(PixelStream, Writable)
 function PixelStream (opts) {
   Writable.call(this, {
-    objectMode: true
+    objectMode: true,
+    highWaterMark: 1
   })
   this.opc = opts.opc
   this.channel = opts.channel
@@ -37,9 +36,15 @@ PixelStream.prototype._write = function write (pixels, enc, cb) {
   var length = reduce(pixels.shape, mult) / pixels.shape[pixels.shape.length - 1]
   var strand = createStrand(length)
   var d = pixels.data
-  
-  for (var i = 0, ii = 0; i < length; i++, ii += 3) {
-    strand.setPixel(i, d[ii], d[ii + 1], d[ii + 2])
+
+  // TODO support n-dimensions
+  for (var i = 0; i < pixels.shape[0]; i++) {
+    for (var j = 0; j < pixels.shape[1]; j++) {
+      var bi = pixels.index(i, j, 0)
+      var si = (i % 2 === 0) ?
+        bi / 3 : pixels.index(i, j + pixels.shape[0] - (2 * (j % pixels.shape[0])) - 1, 0) / 3
+      strand.setPixel(si, d[bi], d[bi + 1], d[bi + 2])
+    }
   }
 
   this.opc.writePixels(this.channel, strand.buffer)
