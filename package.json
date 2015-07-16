@@ -1,7 +1,7 @@
 {
   "name": "ndpixels-opc",
-  "version": "3.0.0-pre0",
-  "description": "stream `ndarray`s of rgb pixels over `opc`",
+  "version": "3.0.0",
+  "description": "stream ndpixels over Open Pixel Control",
   "main": "index.js",
   "scripts": {
     "test": "tape test/*"
