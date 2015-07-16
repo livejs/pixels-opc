@@ -14,6 +14,13 @@ test('send some pixels', function (t) {
     255, 255, 255
   ])
 
+  var expected = [
+    255, 0, 0,
+    0, 255, 0,
+    255, 255, 255,
+    0, 0, 255
+  ]
+
   input
   .pipe(createPixelStream(0))
   .pipe(createParser())
@@ -21,7 +28,10 @@ test('send some pixels', function (t) {
     t.equal(message.channel, 0)
     t.equal(message.command, 0)
     t.equal(message.data.length, 4 * 3)
-    t.deepEqual(message.data.toJSON().data, [].slice.call(data, 0, data.length))
+    t.deepEqual(
+      message.data.toJSON().data,
+      expected
+    )
     t.end()
   })
 
