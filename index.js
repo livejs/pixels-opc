@@ -25,7 +25,8 @@ function createPixelsStream (channel) {
 inherits(PixelStream, Writable)
 function PixelStream (opts) {
   Writable.call(this, {
-    objectMode: true
+    objectMode: true,
+    highWaterMark: 1
   })
   this.opc = opts.opc
   this.channel = opts.channel
