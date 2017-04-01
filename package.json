@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ahdinosaur/ndpixels-opc.git"
+    "url": "git+https://github.com/livejs/pixels-opc.git"
   },
   "keywords": [
     "ndpixels",
@@ -36,9 +36,9 @@
   "author": "Mikey <michael.williams@enspiral.com> (http://dinosaur.is)",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/ahdinosaur/ndpixels-opc/issues"
+    "url": "https://github.com/livejs/pixels-opc/issues"
   },
-  "homepage": "https://github.com/ahdinosaur/ndpixels-opc#readme",
+  "homepage": "https://github.com/livejs/pixels-opc#readme",
   "devDependencies": {
     "dependency-check": "^2.7.0",
     "ndarray-pack": "^1.2.1",

@@ -1,14 +1,18 @@
-# ndpixels-opc
+# pixels-opc
 
-stream ndpixels over Open Pixel Control
+stream [ndpixels](https://github.com/livejs/ndpixels) over [Open Pixel Control](openpixelcontrol.org)
 
 ```shell
-npm install --save ndpixels-opc
+npm install --save pixels-opc
 ```
 
 ## usage
 
-### `ndpixelsOpc = require('ndpixels-opc')`
+### `createOpcStream = require('pixels-opc')`
+
+### `opcStream = createOpcStream(channel)`
+
+### `pull(pixelsStream, opcStream, netConnection.sink)`
 
 ## license
 
