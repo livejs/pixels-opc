@@ -1,6 +1,6 @@
 # pixels-opc
 
-stream [ndpixels](https://github.com/livejs/ndpixels) over [Open Pixel Control](openpixelcontrol.org)
+stream [ndpixels](https://github.com/livejs/ndpixels) over [Open Pixel Control](http://openpixelcontrol.org)
 
 ```shell
 npm install --save pixels-opc
