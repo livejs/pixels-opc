@@ -4,11 +4,22 @@
   "description": "stream ndpixels over Open Pixel Control",
   "main": "index.js",
   "scripts": {
-    "test": "tape test/*"
+    "start": "node-dev example",
+    "test:deps": "dependency-check . && dependency-check . --extra --no-dev -i es2040",
+    "test:lint": "standard",
+    "test:node": "NODE_ENV=test run-default tape test/*.js --",
+    "test:coverage": "NODE_ENV=test nyc npm run test:node",
+    "test:coverage:report": "nyc report --reporter=lcov npm run test:node",
+    "test": "npm-run-all -s test:node test:lint test:deps"
+  },
+  "browserify": {
+    "transform": [
+      "es2040"
+    ]
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/livejs/ledarray-opc.git"
+    "url": "git+https://github.com/ahdinosaur/ndpixels-opc.git"
   },
   "keywords": [
     "ndpixels",
@@ -19,24 +30,32 @@
     "pixel",
     "fadecandy",
     "neopixel",
+    "dotstar",
     "pixels"
   ],
-  "author": "ahdinosaur",
-  "license": "ISC",
+  "author": "Mikey <michael.williams@enspiral.com> (http://dinosaur.is)",
+  "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/livejs/ledarray-opc/issues"
+    "url": "https://github.com/ahdinosaur/ndpixels-opc/issues"
   },
-  "homepage": "https://github.com/livejs/ledarray-opc#readme",
-  "dependencies": {
-    "defined": "^1.0.0",
-    "inherits": "^2.0.1",
-    "lodash.reduce": "^3.1.2",
-    "opc": "^1.1.2",
-    "readable-stream": "^2.0.1",
-    "reduplexer": "^1.1.0"
-  },
+  "homepage": "https://github.com/ahdinosaur/ndpixels-opc#readme",
   "devDependencies": {
-    "ndarray": "^1.0.18",
-    "tape": "^4.0.0"
+    "dependency-check": "^2.7.0",
+    "ndarray-pack": "^1.2.1",
+    "node-dev": "^3.1.3",
+    "npm-run-all": "^4.0.1",
+    "nyc": "^10.1.2",
+    "run-default": "^1.0.0",
+    "standard": "^8.6.0",
+    "stream-to-pull-stream": "^1.7.2",
+    "tape": "^4.6.3"
+  },
+  "dependencies": {
+    "@f/curry-once": "^1.3.2",
+    "cwise": "^1.0.10",
+    "es2040": "^1.2.3",
+    "opc": "^1.1.3",
+    "pull-opc": "^1.0.0",
+    "pull-stream": "^3.5.0"
   }
 }
