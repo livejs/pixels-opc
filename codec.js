@@ -5,7 +5,6 @@ const createStrand = require('opc/strand')
 const encodePixels = curry(cwise({
   args: ['scalar', 'scalar', 'shape', 'index', { blockIndices: -1 }],
   pre: function (createStrand, getLength, shape) {
-    console.log('shape', shape)
     var length = getLength(shape)
     this.strand = createStrand(length)
   },
