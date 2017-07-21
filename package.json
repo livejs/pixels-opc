@@ -1,6 +1,6 @@
 {
   "name": "pixels-opc",
-  "version": "4.0.2",
+  "version": "5.0.0",
   "description": "stream ndpixels over Open Pixel Control",
   "main": "index.js",
   "scripts": {
