@@ -52,6 +52,7 @@
   },
   "dependencies": {
     "@f/curry-once": "^1.3.2",
+    "@f/defaults": "^1.0.1",
     "cwise": "^1.0.10",
     "es2040": "^1.2.3",
     "opc": "^1.1.3",
